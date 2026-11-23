@@ -23,20 +23,64 @@ export async function generateStaticParams() {
   }
 }
 
+
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const project = await getProject(slug)
-  if (!project) return { title: 'Project not found' }
+
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+      robots: {
+        index: false,
+        follow: false,
+      },
+    }
+  }
+
+  const baseUrl = 'https://www.abdullahbutt.dev'
+  const canonicalUrl = `${baseUrl}/projects/${slug}`
+
+  const imageUrl = project.image
+    ? new URL(project.image, baseUrl).toString()
+    : undefined
+
   return {
-    title: project.title,
+    title: `${project.title} | Development Project`,
     description: project.description,
+
+    alternates: {
+      canonical: canonicalUrl,
+    },
+
     openGraph: {
-      title: project.title,
+      title: `${project.title} | Abdullah Butt`,
       description: project.description,
-      images: project.image ? [project.image] : undefined,
+      url: canonicalUrl,
+      type: 'article',
+      siteName: 'Abdullah Butt',
+      images: imageUrl
+        ? [
+            {
+              url: imageUrl,
+              width: 1200,
+              height: 630,
+              alt: `${project.title} project preview`,
+            },
+          ]
+        : undefined,
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} | Abdullah Butt`,
+      description: project.description,
+      images: imageUrl ? [imageUrl] : undefined,
     },
   }
 }
+
 
 export default async function ProjectDetailsPage({ params }: Props) {
   const { slug } = await params
