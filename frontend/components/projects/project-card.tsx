@@ -1,3 +1,4 @@
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
@@ -8,7 +9,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface/40 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+      className="group relative flex min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-surface/40 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-surface-2">
         <Image
@@ -24,20 +25,23 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col gap-3 p-6">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <h3 className="text-lg font-semibold tracking-tight">
+      <div className="flex min-w-0 flex-1 flex-col gap-4 p-6">
+        <div className="flex min-w-0 items-start justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <h3 className="break-words text-lg font-semibold tracking-tight">
               {project.title}
             </h3>
-            <p className="text-sm text-muted-foreground">{project.category}</p>
+            <p className="mt-1 break-words text-sm text-muted-foreground">
+              {project.category}
+            </p>
           </div>
+
           <span className="mt-1 grid size-8 shrink-0 place-items-center rounded-full border border-border text-muted-foreground transition-all duration-300 group-hover:border-primary/50 group-hover:text-foreground">
             <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </span>
         </div>
 
-        <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+        <p className="line-clamp-2 break-words text-sm leading-6 text-muted-foreground">
           {project.description}
         </p>
 
