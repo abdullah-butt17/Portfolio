@@ -5,7 +5,13 @@ import { ArrowUpRight } from 'lucide-react'
 import { TechnologyBadge, StatusBadge } from '@/components/ui/badges'
 import type { Project } from '@/lib/types'
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({
+  project,
+  eager = false,
+}: {
+  project: Project
+  eager?: boolean
+}) {
   return (
     <Link
       href={`/projects/${project.slug}`}
@@ -16,6 +22,7 @@ export function ProjectCard({ project }: { project: Project }) {
           src={project.image || '/placeholder.svg'}
           alt={project.title}
           fill
+          loading={eager || !project.image ? 'eager' : 'lazy'}
           sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />

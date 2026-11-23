@@ -65,7 +65,7 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project, i) => (
             <Reveal key={project.slug} delay={i * 70}>
-              <ProjectCard project={project} />
+              <ProjectCard project={project} eager={i === 0} />
             </Reveal>
           ))}
         </div>

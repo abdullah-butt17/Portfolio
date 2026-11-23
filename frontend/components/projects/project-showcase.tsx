@@ -45,6 +45,7 @@ export function ProjectShowcase({
             src={project.image || '/placeholder.svg'}
             alt={project.title}
             fill
+            loading={isPrimary || !project.image ? 'eager' : 'lazy'}
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover object-left-top transition-transform duration-700 group-hover:scale-[1.04]"
             priority={isPrimary}
