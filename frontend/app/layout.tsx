@@ -84,6 +84,7 @@ const structuredData = [
     ],
     sameAs: [
       'https://github.com/abdullah-butt17',
+      'https://www.linkedin.com/in/abdullah-butt-92939436a/',
     ],
   },
   {
