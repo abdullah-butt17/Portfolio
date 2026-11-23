@@ -5,11 +5,30 @@ import { Reveal } from '@/components/ui/reveal'
 import { SkillCard } from '@/components/skills/skill-card'
 import { getSkillsGrouped, getProfile } from '@/lib/api'
 
+
 export const metadata: Metadata = {
   title: 'Skills',
   description:
-    'Technical skills across the MERN stack, AI/ML, and cloud deployment.',
+    'Explore Abdullah Butt’s technical skills in React, Next.js, Node.js, Python, MongoDB, full-stack development, artificial intelligence, machine learning, and cloud deployment.',
+  alternates: {
+    canonical: '/skills',
+  },
+  openGraph: {
+    title: 'Technical Skills | Abdullah Butt',
+    description:
+      'Discover my expertise in full-stack development, MERN technologies, Python, artificial intelligence, machine learning, and modern software engineering.',
+    url: '/skills',
+    type: 'website',
+    siteName: 'Abdullah Butt',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Technical Skills | Abdullah Butt',
+    description:
+      'Explore my full-stack development, Python, AI/ML, and software engineering expertise.',
+  },
 }
+
 
 export default async function SkillsPage() {
   const [byCategory, profile] = await Promise.all([getSkillsGrouped(), getProfile()])

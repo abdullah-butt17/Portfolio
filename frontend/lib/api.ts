@@ -41,7 +41,7 @@ export function mapProject(raw: RawProject): Project {
     featured: raw.featured,
     published: raw.published,
     displayOrder: raw.displayOrder,
-    image: raw.thumbnail?.url ?? null,
+    image: raw.thumbnail?.url ?? raw.screenshots?.[0]?.url ?? null,
     thumbnail: raw.thumbnail ?? null,
     gallery: raw.screenshots ?? [],
     video: raw.video ?? null,

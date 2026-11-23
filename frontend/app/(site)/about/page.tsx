@@ -6,11 +6,25 @@ import { Reveal } from '@/components/ui/reveal'
 import { Button } from '@/components/ui/button'
 import { getProfile } from '@/lib/api'
 
+
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About Abdullah Butt | Developer & AI Engineer',
   description:
-    'About Abdullah Butt — a Full-Stack Developer & AI Engineer building modern web applications, business systems, and intelligent software.',
+    'Learn about Abdullah Butt, a Full-Stack Developer and AI Engineer specializing in modern web applications, MERN stack development, business management systems, and practical AI solutions.',
+
+  alternates: {
+    canonical: '/about',
+  },
+
+  openGraph: {
+    title: 'About Abdullah Butt | Developer & AI Engineer',
+    description:
+      'Explore my development journey, technical expertise, engineering philosophy, and experience building real-world software solutions.',
+    url: '/about',
+    type: 'profile',
+  },
 }
+
 
 const whatIDo = [
   {
